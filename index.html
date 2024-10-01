@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Bootstrap Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+    }
+
+    /* Ensure dropdown menu is on top of carousel */
+    .dropdown-menu {
+      z-index: 1000;
+    }
+
+    /* Adjust carousel to avoid conflicts */
+    .carousel-inner {
+      margin-top: 20px;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 300px;
+      /* adjust the width as needed */
+      height: 50px;
+      /* adjust the height as needed */
+      overflow: hidden;
+    }
+
+    .slider-track {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+    }
+
+    .slider-cell {
+      flex: 0 0 20%;
+      /* adjust the width of each cell */
+      height: 100%;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      /* adjust the width of the handle */
+      height: 100%;
+      background-color: #666;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+
+  <!-- Navbar with Dropdown -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://picsum.photos/800/400" alt="Random Image"
+          style="width: 100%; height: 600px; object-fit: cover;">
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/800/400" alt="Random Image"
+          style="width: 100%; height: 600px; object-fit: cover;">
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/800/400" alt="Random Image"
+          style="width: 100%; height: 600px; object-fit: cover;">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-4xl mx-auto p-4">
+    <h2 class="text-3xl font-bold text-center mb-4">
+     Our Clients!
+    </h2>
+    <div class="border-b-4 border-teal-500 w-24 mx-auto mb-8">
+    </div>
+    <div class="relative bg-white shadow-lg rounded-lg p-8 flex items-center justify-between">
+     <button class="absolute left-0 ml-4 text-gray-400 hover:text-gray-600" id="prev">
+      <i class="fas fa-arrow-left fa-2x">
+      </i>
+     </button>
+     <div class="carousel-container w-full">
+      <div class="carousel">
+       <img alt="Logo of SOCRU YAN" class="h-12 mx-4" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-RcpoXHkzChYnDbFAyeQ8tamr/user-ehrvabJ3DufsCu8YJ7PqY5gl/img-eGwjRRy8rQ0KLeLTBtevsF6t.png?st=2024-10-01T05%3A24%3A26Z&amp;se=2024-10-01T07%3A24%3A26Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-10-01T01%3A09%3A11Z&amp;ske=2024-10-02T01%3A09%3A11Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=be8uSw042FsPQrhHCGCwq7ec0P3Diyj4PDPFuDogU/8%3D" width="100"/>
+       <img alt="Logo of ANGRY BUCHI" class="h-12 mx-4" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-RcpoXHkzChYnDbFAyeQ8tamr/user-ehrvabJ3DufsCu8YJ7PqY5gl/img-r8eOzt7d2GKgakgub7YpxK9k.png?st=2024-10-01T05%3A24%3A29Z&amp;se=2024-10-01T07%3A24%3A29Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-30T16%3A42%3A28Z&amp;ske=2024-10-01T16%3A42%3A28Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=DiSxCjl%2BIiP9t7nrQBeXVFusAdi5Wa%2B0ws1kKlVo/Tg%3D" width="100"/>
+       <img alt="Logo of EXPERIONE" class="h-12 mx-4" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-RcpoXHkzChYnDbFAyeQ8tamr/user-ehrvabJ3DufsCu8YJ7PqY5gl/img-fgfnDPySvCNiQNs8w4YxENhE.png?st=2024-10-01T05%3A24%3A27Z&amp;se=2024-10-01T07%3A24%3A27Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-10-01T01%3A48%3A55Z&amp;ske=2024-10-02T01%3A48%3A55Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=qC%2Ba337PE6YfAebso42mR9mD2Ms659N3PvYMBp5DrlU%3D" width="100"/>
+       <img alt="Logo of WE SAVE THE KIDS" class="h-12 mx-4" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-RcpoXHkzChYnDbFAyeQ8tamr/user-ehrvabJ3DufsCu8YJ7PqY5gl/img-8F7JcCWiVSdqipNDuT0JlWsG.png?st=2024-10-01T05%3A24%3A24Z&amp;se=2024-10-01T07%3A24%3A24Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-10-01T01%3A35%3A59Z&amp;ske=2024-10-02T01%3A35%3A59Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=L3bzKHPveiUSmL3Vj5RrsDTUqINv5yaCj978pw6Wu3o%3D" width="100"/>
+       <img alt="Logo of MAYOR AGUINALDO" class="h-12 mx-4" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-RcpoXHkzChYnDbFAyeQ8tamr/user-ehrvabJ3DufsCu8YJ7PqY5gl/img-fR1zGy6Sp7jFhKascTxWTSF0.png?st=2024-10-01T05%3A24%3A27Z&amp;se=2024-10-01T07%3A24%3A27Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-30T12%3A21%3A10Z&amp;ske=2024-10-01T12%3A21%3A10Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=vU1UJSKoSJElv6sMMS2Cnb3ku4z8En3J9G8Q0OgcVKE%3D" width="100"/>
+      </div>
+     </div>
+     <button class="absolute right-0 mr-4 text-gray-400 hover:text-gray-600" id="next">
+      <i class="fas fa-arrow-right fa-2x">
+      </i>
+     </button>
+    </div>
+   </div>
+   <script>
+    const carousel = document.querySelector('.carousel');
+         const prevButton = document.getElementById('prev');
+         const nextButton = document.getElementById('next');
+         let currentIndex = 0;
+ 
+         prevButton.addEventListener('click', () => {
+             if (currentIndex > 0) {
+                 currentIndex--;
+                 updateCarousel();
+             }
+         });
+ 
+         nextButton.addEventListener('click', () => {
+             if (currentIndex < carousel.children.length - 1) {
+                 currentIndex++;
+                 updateCarousel();
+             }
+         });
+ 
+         function updateCarousel() {
+             const width = carousel.children[0].clientWidth + 32; // 32 is the total horizontal margin (mx-4)
+             carousel.style.transform = `translateX(-${currentIndex * width}px)`;
+         }
+   </script>
+   </body>
+</body>
+
+</html>
