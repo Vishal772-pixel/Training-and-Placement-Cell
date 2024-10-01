@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fdfcfd 0%, #2575fc 100%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Loading Animation */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 1.5s ease-out forwards 2s; /* Disappears after 2s */
+}
+
+.logo-animation {
+    font-size: 4em;
+    color: white;
+    font-weight: bold;
+    animation: logoBounce 2s infinite;
+}
+
+@keyframes logoBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Header Styles with Kinetic Typography */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(252, 245, 245, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    animation: kineticText 3s ease-in-out forwards;
+}
+
+@keyframes kineticText {
+    0% {
+        letter-spacing: -10px;
+        opacity: 0;
+    }
+    100% {
+        letter-spacing: 1px;
+        opacity: 1;
+    }
+}
+
+/* Domains Section */
+#domains {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#domains h2 {
+    margin-bottom: 40px;
+    font-size: 2em;
+    animation: slideInFromLeft 1.5s ease-out forwards;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.domain-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.domain-card {
+    background: #8a2be2;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    min-height: 200px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-in-out forwards;
+}
+
+.domain-card:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer Styles */
+footer {
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Animations */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes logoBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .domain-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .domain-card {
+        width: 90%; /* Full width on smaller screens */
+    }
+}
